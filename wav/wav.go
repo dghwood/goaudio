@@ -121,6 +121,10 @@ func getChannelMask(c uint16) (mask uint32) {
 	return
 }
 
+func (w *WAV) Seconds() float64 {
+	return float64(w.Length) / (float64(w.BlockAlign) * float64(w.SamplesPerSec))
+}
+
 // Marshal returns audio data as WAV formatted data.
 func (w *WAV) Bytes() (stream []byte, err error) {
 
